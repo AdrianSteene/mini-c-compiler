@@ -1,0 +1,24 @@
+int main() {
+  int x = 0;
+  int sum = 0;
+  while (x < 10) {
+    if (x < 3) {
+      int x;
+      x = 13;
+      sum = sum + x;
+      if (sum > 28) {
+        int sum = 3;
+        int x = sum - 1;
+        print(sum);
+        print(x);
+      }
+    } else {
+      int x = -1;
+      sum = sum + x;
+    }
+    sum = sum + 1;
+    x = x + 1;
+  }
+  print(sum);
+  return 0;
+}

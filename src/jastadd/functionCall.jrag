@@ -1,0 +1,34 @@
+import java.util.*;
+
+aspect functionCalls {
+
+    coll Set<FunctionDecl> FunctionDecl.functionCalls() [new HashSet<FunctionDecl>()] with add;
+    FunctionCall contributes addFunctionCall() to FunctionDecl.functionCalls() for enclosingFunction();
+
+    eq FunctionDecl.getBlock().enclosingFunction() = this;
+    inh FunctionDecl FunctionCall.enclosingFunction(); 
+    inh FunctionDecl ReturnStmt.enclosingFunction(); 
+
+    syn FunctionDecl FunctionCall.addFunctionCall() = getIdUse().decl().funcDecl();
+
+    // Get functionDecl parent of idDecl
+    eq FunctionDecl.getLeft().funcDecl() = this;
+    inh FunctionDecl IdDecl.funcDecl();
+
+}
+
+aspect reachableFunctions {
+
+  syn Set<FunctionDecl> FunctionDecl.reachable() circular [new HashSet<FunctionDecl>()] {
+    Set<FunctionDecl> reachableFunctions = new HashSet(functionCalls());
+    for(FunctionDecl funcDecl: functionCalls()) {
+      reachableFunctions.addAll(funcDecl.reachable());
+    }
+    return reachableFunctions;
+  }
+
+}
+
+
+
+

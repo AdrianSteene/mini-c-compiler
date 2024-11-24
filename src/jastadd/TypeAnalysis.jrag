@@ -1,0 +1,67 @@
+aspect TypeAnalysis {
+
+    syn Type IdDecl.actualType() = intType();
+
+    syn Type Expr.actualType() = unknownType();
+    eq Numeral.actualType() = intType();
+    eq InvNumeral.actualType() = intType();
+    eq IdUse.actualType() = intType();
+    eq FunctionCall.actualType() = intType();
+    eq BoolExpr.actualType() = boolType();
+    eq MathExpr.actualType() = intType();
+
+    syn boolean Expr.typeError() {
+      return !actualType().equals(expectedType());
+    }   
+
+    inh Type Expr.expectedType();
+    eq BoolExpr.getLeft().expectedType() = intType();
+    eq BoolExpr.getRight().expectedType() = intType();
+    eq MathExpr.getLeft().expectedType() = intType();
+    eq MathExpr.getRight().expectedType() = intType();
+
+    inh Type Stmt.expectedType();
+    eq Block.getStmt().expectedType() = intType(); 
+    eq DeclareStmt.getExpr().expectedType() = intType();
+    eq WhileStmt.getExpr().expectedType() = boolType();
+    eq IfStmt.getExpr().expectedType() = boolType(); 
+    eq ReturnStmt.getExpr().expectedType() = intType();
+    eq AssignStmt.getIdUse().expectedType() = intType();
+
+    inh boolean IdDecl.isVariable();
+    eq FunctionDecl.getLeft().isVariable() = false;
+    eq FunctionDecl.getRight().isVariable() = true;
+    eq DeclareStmt.getIdDecl().isVariable() = true;
+    
+    syn boolean IdUse.isVariable();
+    eq IdUse.isVariable() = decl().isVariable();
+
+    inh boolean IdDecl.isFunction();
+    eq FunctionDecl.getLeft().isFunction() = true;
+    eq FunctionDecl.getRight().isFunction() = false;
+    eq DeclareStmt.getIdDecl().isFunction() = false;
+
+    syn boolean IdUse.isFunction();
+    eq IdUse.isFunction() = decl().isFunction();
+
+
+    syn boolean Stmt.validDecl() = false;
+    eq AssignStmt.validDecl() = getIdUse().isFunction();
+    
+    syn boolean Expr.validDecl() = false;
+    eq FunctionCall.validDecl() = getIdUse().isVariable();
+
+    
+    // Rör ej!
+    syn nta IntType Program.intType() = new IntType();
+    inh IntType ASTNode.intType();
+    eq Program.getChild().intType() = intType();
+
+    syn nta BoolType Program.boolType() = new BoolType();
+    inh BoolType ASTNode.boolType();
+    eq Program.getChild().boolType() = boolType();
+
+    syn nta UnknownType Program.unknownType() = new UnknownType();
+    inh UnknownType ASTNode.unknownType();
+    eq Program.getChild().unknownType() = unknownType();
+}

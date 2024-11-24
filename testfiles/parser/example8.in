@@ -1,0 +1,11 @@
+int x(){
+    if (x < y) { 
+        int x;
+    }
+    return 3 + -2;
+
+    return -(5);
+}
+int x (){
+    
+}

@@ -1,0 +1,122 @@
+%class "LangParser";
+%package "lang.ast";
+
+%embed {:
+    static public class SyntaxError extends RuntimeException { public SyntaxError(String msg) {super(msg);}}
+    // Disable syntax error recovery
+    protected void recoverFromError(Symbol token, TokenStream in) {
+        throw new SyntaxError("Cannot recover from the syntax error");
+    }
+:};
+
+%terminals ID, INT, ASSIGN, LEFTBRAK, RIGHTBRAK, LEFTPAR, RIGHTPAR, NUMERAL, END, SEPERATOR, WHILE, EQUAL, NOTEQUAL, LESSTHAN, LESSOREQUALTHAN, GREATERTHAN, GREATEROREQUALTHAN, SUB, ADD, MUL, DIV, IF, RETURN, ELSE, MOD;
+
+%typeof program = "Program";
+%typeof functionDecl = "FunctionDecl";
+%typeof function_list = "List";
+%typeof expr = "Expr";
+%typeof stmt_list = "List";
+%typeof expr_list = "List";
+%typeof argument_list = "List";
+%typeof argument = "List";
+%typeof opt_stmt_list = "Block";
+%typeof opt_expr_list = "List";
+%typeof stmt= "Stmt";
+%typeof id_use = "IdUse";
+%typeof id_decl = "IdDecl";
+%typeof declare = "DeclareStmt";
+%typeof assignment = "AssignStmt";
+%typeof numeral = "Numeral";
+%typeof factor = "Expr";
+%typeof term = "Expr";
+%typeof whileStmt = "WhileStmt"; 
+%typeof ifStmt = "IfStmt"; 
+%typeof if_else_stmt = "IfElseStmt"; 
+%typeof returnStmt = "ReturnStmt"; 
+%typeof function_call = "FunctionCall"; 
+%typeof function_call_stmt = "FunctionCallStmt"; 
+%typeof add = "Add"; 
+%typeof sub = "Sub"; 
+%typeof mul = "Mul"; 
+%typeof div = "Div"; 
+%typeof mod = "Mod"; 
+%typeof num = "Expr";
+%typeof invNum = "Expr";
+
+%goal program;
+
+program = function_list.a {: return new Program(a); :};
+
+function_list = 
+    functionDecl.a {: return new List().add(a) ; :} 
+    | function_list.a functionDecl.b {: return a.add(b); :};
+
+functionDecl = 
+    id_decl.id LEFTPAR argument.b RIGHTPAR LEFTBRAK opt_stmt_list.a RIGHTBRAK {: return new FunctionDecl(id,b,a); :};
+
+argument = {: return new List(); :} | argument_list.a {: return a; :};
+
+argument_list = 
+    id_decl.a {: return new List().add(a); :}
+    | argument_list.a SEPERATOR id_decl.b {: return a.add(b); :};
+
+opt_stmt_list = {: return new Block(); :}| stmt_list.a {: return  new Block(a); :};
+
+stmt_list =
+    stmt.a {: return new List().add(a) ; :} 
+    | stmt_list.a stmt.b {: return a.add(b); :};
+
+stmt = declare | assignment | whileStmt | ifStmt | returnStmt  | function_call_stmt | if_else_stmt;
+
+declare = id_decl.id END {: return new DeclareStmt(id, new Opt()); :} | id_decl.id ASSIGN expr.n END {: return new DeclareStmt(id, new Opt(n)); :};
+
+assignment = id_use.id ASSIGN expr.n END {: return new AssignStmt(id, n); :} ;
+
+function_call_stmt = function_call.a END {: return new FunctionCallStmt(a); :};
+
+returnStmt = RETURN expr.a END {: return new ReturnStmt(a); :};
+
+whileStmt = WHILE LEFTPAR expr.a RIGHTPAR LEFTBRAK opt_stmt_list.b RIGHTBRAK {: return new WhileStmt(a,b); :};
+
+ifStmt = IF LEFTPAR expr.a RIGHTPAR LEFTBRAK opt_stmt_list.b RIGHTBRAK {: return new IfStmt(a,b); :};
+
+if_else_stmt = ifStmt.a ELSE LEFTBRAK opt_stmt_list.b RIGHTBRAK {: return new IfElseStmt(a,b); :};
+
+expr = 
+    term.a EQUAL term.b {: return new Equal(a,b);:}
+    | term.a NOTEQUAL term.b {: return new NotEqual(a,b);:}
+    | term.a LESSTHAN term.b {: return new Less(a,b);:}
+    | term.a GREATERTHAN term.b {: return new Greater(a,b);:}
+    | term.a LESSOREQUALTHAN term.b {: return new LessOrEqual(a,b);:}
+    | term.a GREATEROREQUALTHAN term.b {: return new GreaterOrEqual(a,b);:}
+    | term;
+
+term = 
+    term.a ADD factor.b {: return new Add(a, b); :}
+    | term.a SUB factor.b {: return new Sub(a, b); :}
+    | factor;
+
+factor = 
+    factor.a MUL num.b {: return new Mul(a, b); :}
+    | factor.a DIV num.b {: return new Div(a, b); :}
+    | factor.a MOD num.b {: return new Mod(a, b); :}
+    | num;
+
+num = numeral | function_call | LEFTPAR expr.a RIGHTPAR {: return a; :} | id_use | invNum;
+
+invNum = SUB num.a {: return new InvNumeral(a); :};
+
+opt_expr_list = {: return new List(); :} | expr_list.a {: return a; :};
+
+expr_list = 
+    expr.a {: return new List().add(a); :}
+    | expr_list.a SEPERATOR expr.b {: return a.add(b); :};
+
+function_call = id_use.a LEFTPAR opt_expr_list.b RIGHTPAR {: return new FunctionCall(a,b); :};
+
+numeral = NUMERAL.num {: return new Numeral(num); :};
+
+id_use = ID.id {: return new IdUse(id); :} ;
+
+id_decl = INT ID.id {: return new IdDecl(id); :} ;
+

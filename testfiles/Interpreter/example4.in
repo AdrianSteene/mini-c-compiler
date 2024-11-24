@@ -1,0 +1,5 @@
+int f() { return 121; }
+int main() {
+  print(f());
+  return 0;
+}

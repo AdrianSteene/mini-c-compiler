@@ -1,0 +1,6 @@
+// 21
+int f(int x, int y) { return x + y; }
+int main() {
+  print(f(12321, 32123));
+  return 0;
+}

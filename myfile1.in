@@ -1,0 +1,13 @@
+int main(){
+    int sum = 0;
+    int x = read();
+    int index = 0;
+
+    while(x != index){
+        index = index +1;
+        sum = sum + index;
+    }
+
+    print(sum);
+    return 0;
+}

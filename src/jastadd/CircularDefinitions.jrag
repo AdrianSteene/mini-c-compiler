@@ -1,0 +1,9 @@
+aspect CircularDefinitions {
+    /* Identify circular definitions in let expressions */
+    syn boolean IdUse.isCircular() = inExprOf(decl());
+    inh boolean IdUse.inExprOf(IdDecl decl);
+    inh boolean DeclareStmt.inExprOf(IdDecl decl);
+    eq DeclareStmt.getExpr().inExprOf(IdDecl decl)
+        = getIdDecl() == decl || inExprOf(decl);
+    eq Program.getChild().inExprOf(IdDecl decl) = false;
+}

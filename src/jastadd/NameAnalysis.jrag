@@ -1,0 +1,110 @@
+aspect NameAnalysis {
+    syn boolean FunctionCall.validCall() = !functionLookup(getIdUse().getID(), getExprs());
+
+    // inh boolean FunctionCall.functionLookup(String name, List list);
+
+    eq Program.getFunctionDecl(int index).functionLookup(String name, List list){
+        for(int i = 0; i < getNumFunctionDecl(); i++){
+            if(getFunctionDecl(i).getLeft().getID().equals(name)){
+                return getFunctionDecl(i).getRightList().getNumChild() == list.getNumChild();
+            }
+        }
+
+        for(FunctionDecl func: pred()){
+            if(func.getLeft().getID().equals(name)){
+                return func.getRightList().getNumChild() == list.getNumChild();
+            }
+        }
+        return false;
+    }
+
+    inh boolean FunctionDecl.functionLookup(String name, List list);
+    inh boolean FunctionCall.functionLookup(String name, List list);
+
+    syn IdDecl IdUse.decl()  {
+            IdDecl idDecl1 = lookup(getID());
+            if(!idDecl1.isUnknown())
+                return idDecl1;
+            return unknownDecl();
+         }
+
+    inh IdDecl IdUse.lookup(String name);
+    
+    inh IdDecl Block.lookup(String name);
+
+    inh IdDecl FunctionDecl.lookup(String name);
+
+    syn nta List<FunctionDecl> Program.pred(){
+        List<FunctionDecl> list = new List<FunctionDecl>();
+        list.add(new FunctionDecl(new IdDecl("print"), new List().add(new IdDecl("var")), new Block(new List())));
+        list.add(new FunctionDecl(new IdDecl("read"), new List(), new Block(new List())));
+        return list;
+    }
+    
+    eq Program.getFunctionDecl(int index).lookup(String name) {
+        for(FunctionDecl fd : getFunctionDecls()) {
+            if(fd.getLeft().getID().equals(name)){
+                return fd.getLeft();
+            }
+        }
+       
+        for(FunctionDecl func: pred()){
+            if(func.getLeft().getID().equals(name)){
+                return func.getLeft();
+            }
+            
+        }
+        return unknownDecl();
+    }
+    
+
+
+    eq FunctionDecl.getBlock().lookup(String name){
+        IdDecl decl = localLookup(name);
+        if(!decl.isUnknown())
+            return decl;
+        return lookup(name);
+    }
+    
+    eq FunctionDecl.getRight().lookup(String name){
+        for (IdDecl d: getRightList()) {
+            if (d.getID().equals(name))
+                return d;
+        }
+        return lookup(name);
+    }
+
+    eq Block.getStmt(int index).lookup(String name) {
+        IdDecl decl = localLookup(name, index+1);
+        if(!decl.isUnknown())
+            return decl;
+        return lookup(name);
+    }
+
+    syn boolean IdDecl.isMultiDeclared() = lookup(getID()) != this;
+    inh IdDecl IdDecl.lookup(String name);
+
+    
+    syn IdDecl FunctionDecl.localLookup(String s) {
+        if(getLeft().getID().equals(s)) return getLeft();
+        for (IdDecl d: getRightList()) {
+            if (d.getID().equals(s))
+                return d;
+        }
+        return unknownDecl();
+    }
+    
+    syn IdDecl Block.localLookup(String name, int index){
+        for(int i = 0; i < index; i++){
+            if(getStmt(i).localLookup().getID().equals(name)){
+                return getStmt(i).localLookup();
+            }
+        }
+        return unknownDecl();
+    }
+
+    syn IdDecl Stmt.localLookup() = unknownDecl();
+    eq DeclareStmt.localLookup() = getIdDecl();
+
+}
+

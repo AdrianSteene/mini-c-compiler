@@ -1,0 +1,16 @@
+int a(){
+  while(b == 10){
+    if(a >= 10){
+      int b;
+      int a = 10;
+      b = 1000;
+    }
+    else{
+      int b = 10;
+    }
+  }
+}
+int b(){
+  int test;
+}
+

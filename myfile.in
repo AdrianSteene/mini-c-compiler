@@ -1,0 +1,13 @@
+int main(){
+    int a = read();
+    int b = read();
+    if(add(a,b) != 0){
+        print(5*2);
+        main();
+    }
+    return 0;
+}
+
+int add(int a, int b){
+    return a - b;
+}

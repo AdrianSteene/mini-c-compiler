@@ -1,0 +1,6 @@
+int func1() {
+  int a = 1234567;
+  a = f(a,b); 
+  a = read();
+  a = print();
+ }

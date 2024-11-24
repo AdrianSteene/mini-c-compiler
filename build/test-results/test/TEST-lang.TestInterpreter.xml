@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="lang.TestInterpreter" tests="6" skipped="0" failures="0" errors="0" timestamp="2024-10-22T12:31:58" hostname="Adrians-MacBook-Pro.local" time="0.027">
+  <properties/>
+  <testcase name="runTest[example1.in]" classname="lang.TestInterpreter" time="0.002"/>
+  <testcase name="runTest[example5.in]" classname="lang.TestInterpreter" time="0.014"/>
+  <testcase name="runTest[example4.in]" classname="lang.TestInterpreter" time="0.001"/>
+  <testcase name="runTest[example3.in]" classname="lang.TestInterpreter" time="0.001"/>
+  <testcase name="runTest[example2.in]" classname="lang.TestInterpreter" time="0.001"/>
+  <testcase name="runTest[example6.in]" classname="lang.TestInterpreter" time="0.008"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
