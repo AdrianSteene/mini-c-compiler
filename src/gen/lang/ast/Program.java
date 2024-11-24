@@ -11,7 +11,7 @@ import java.util.Map;
 import java.lang.reflect.InvocationTargetException;
 /**
  * @ast node
- * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/lang.ast:1
+ * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/lang.ast:1
  * @astdecl Program : ASTNode ::= FunctionDecl*;
  * @production Program : {@link ASTNode} ::= <span class="component">{@link FunctionDecl}*</span>;
 
@@ -19,14 +19,14 @@ import java.lang.reflect.InvocationTargetException;
 public class Program extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @aspect Visitor
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Visitor.jrag:48
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Visitor.jrag:48
    */
   public Object accept(Visitor visitor, Object data) {
         return visitor.visit(this, data);
     }
   /**
    * @aspect CodeGen
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CodeGen.jrag:2
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/CodeGen.jrag:2
    */
   public void genCode(PrintStream out) {
         out.println(".global _start");
@@ -174,7 +174,7 @@ public class Program extends ASTNode<ASTNode> implements Cloneable {
     }
   /**
    * @aspect Interpreter
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Interpreter.jrag:7
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Interpreter.jrag:7
    */
   public void eval(){
         boolean hasMainFunc = false;
@@ -439,7 +439,7 @@ public class Program extends ASTNode<ASTNode> implements Cloneable {
   }
   /**
    * @aspect <NoAspect>
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Error.jrag:26
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Error.jrag:26
    */
   /** @apilevel internal */
 protected java.util.Map<ASTNode, java.util.Set<ASTNode>> contributorMap_Program_errors = null;
@@ -454,7 +454,7 @@ protected java.util.Map<ASTNode, java.util.Set<ASTNode>> contributorMap_Program_
 
   /**
    * @aspect <NoAspect>
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/functionCall.jrag:5
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/functionCall.jrag:5
    */
   /** @apilevel internal */
 protected java.util.Map<ASTNode, java.util.Set<ASTNode>> contributorMap_FunctionDecl_functionCalls = null;
@@ -483,10 +483,10 @@ protected boolean stmtIndex_visited = false;
   /**
    * @attribute syn
    * @aspect CodeGen
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CodeGen.jrag:405
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/CodeGen.jrag:405
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN)
-  @ASTNodeAnnotation.Source(aspect="CodeGen", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CodeGen.jrag:400")
+  @ASTNodeAnnotation.Source(aspect="CodeGen", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/CodeGen.jrag:400")
   public int stmtIndex() {
     ASTState state = state();
     if (stmtIndex_computed) {
@@ -521,10 +521,10 @@ protected boolean unknownDecl_visited = false;
   /**
    * @attribute syn
    * @aspect UnknownDecl
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/UnknownDecl.jrag:2
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/UnknownDecl.jrag:2
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN, isNTA=true)
-  @ASTNodeAnnotation.Source(aspect="UnknownDecl", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/UnknownDecl.jrag:2")
+  @ASTNodeAnnotation.Source(aspect="UnknownDecl", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/UnknownDecl.jrag:2")
   public UnknownDecl unknownDecl() {
     ASTState state = state();
     if (unknownDecl_computed) {
@@ -560,10 +560,10 @@ protected boolean intType_visited = false;
   /**
    * @attribute syn
    * @aspect TypeAnalysis
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:56
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:56
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN, isNTA=true)
-  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:56")
+  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:56")
   public IntType intType() {
     ASTState state = state();
     if (intType_computed) {
@@ -599,10 +599,10 @@ protected boolean boolType_visited = false;
   /**
    * @attribute syn
    * @aspect TypeAnalysis
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:60
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:60
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN, isNTA=true)
-  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:60")
+  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:60")
   public BoolType boolType() {
     ASTState state = state();
     if (boolType_computed) {
@@ -638,10 +638,10 @@ protected boolean unknownType_visited = false;
   /**
    * @attribute syn
    * @aspect TypeAnalysis
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:64
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:64
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN, isNTA=true)
-  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:64")
+  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:64")
   public UnknownType unknownType() {
     ASTState state = state();
     if (unknownType_computed) {
@@ -677,10 +677,10 @@ protected boolean pred_visited = false;
   /**
    * @attribute syn
    * @aspect NameAnalysis
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:37
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:37
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN, isNTA=true)
-  @ASTNodeAnnotation.Source(aspect="NameAnalysis", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:37")
+  @ASTNodeAnnotation.Source(aspect="NameAnalysis", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:37")
   public List<FunctionDecl> pred() {
     ASTState state = state();
     if (pred_computed) {
@@ -706,7 +706,7 @@ protected boolean pred_visited = false;
           return list;
       }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/UnknownDecl.jrag:4
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/UnknownDecl.jrag:4
    * @apilevel internal
    */
   public UnknownDecl Define_unknownDecl(ASTNode _callerNode, ASTNode _childNode) {
@@ -714,7 +714,7 @@ protected boolean pred_visited = false;
     return unknownDecl();
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/UnknownDecl.jrag:4
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/UnknownDecl.jrag:4
    * @apilevel internal
    * @return {@code true} if this node has an equation for the inherited attribute unknownDecl
    */
@@ -722,7 +722,7 @@ protected boolean pred_visited = false;
     return true;
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Error.jrag:28
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Error.jrag:28
    * @apilevel internal
    */
   public Program Define_program(ASTNode _callerNode, ASTNode _childNode) {
@@ -730,7 +730,7 @@ protected boolean pred_visited = false;
     return this;
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Error.jrag:28
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Error.jrag:28
    * @apilevel internal
    * @return {@code true} if this node has an equation for the inherited attribute program
    */
@@ -738,7 +738,7 @@ protected boolean pred_visited = false;
     return true;
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CircularDefinitions.jrag:4
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/CircularDefinitions.jrag:4
    * @apilevel internal
    */
   public boolean Define_inExprOf(ASTNode _callerNode, ASTNode _childNode, IdDecl decl) {
@@ -746,7 +746,7 @@ protected boolean pred_visited = false;
     return false;
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CircularDefinitions.jrag:4
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/CircularDefinitions.jrag:4
    * @apilevel internal
    * @return {@code true} if this node has an equation for the inherited attribute inExprOf
    */
@@ -754,7 +754,7 @@ protected boolean pred_visited = false;
     return true;
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:57
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:57
    * @apilevel internal
    */
   public IntType Define_intType(ASTNode _callerNode, ASTNode _childNode) {
@@ -762,7 +762,7 @@ protected boolean pred_visited = false;
     return intType();
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:57
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:57
    * @apilevel internal
    * @return {@code true} if this node has an equation for the inherited attribute intType
    */
@@ -770,7 +770,7 @@ protected boolean pred_visited = false;
     return true;
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:61
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:61
    * @apilevel internal
    */
   public BoolType Define_boolType(ASTNode _callerNode, ASTNode _childNode) {
@@ -778,7 +778,7 @@ protected boolean pred_visited = false;
     return boolType();
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:61
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:61
    * @apilevel internal
    * @return {@code true} if this node has an equation for the inherited attribute boolType
    */
@@ -786,7 +786,7 @@ protected boolean pred_visited = false;
     return true;
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:65
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:65
    * @apilevel internal
    */
   public UnknownType Define_unknownType(ASTNode _callerNode, ASTNode _childNode) {
@@ -794,7 +794,7 @@ protected boolean pred_visited = false;
     return unknownType();
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:65
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:65
    * @apilevel internal
    * @return {@code true} if this node has an equation for the inherited attribute unknownType
    */
@@ -802,12 +802,12 @@ protected boolean pred_visited = false;
     return true;
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:22
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:22
    * @apilevel internal
    */
   public boolean Define_functionLookup(ASTNode _callerNode, ASTNode _childNode, String name, List list) {
     if (_callerNode == getFunctionDeclListNoTransform()) {
-      // @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:6
+      // @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:6
       int index = _callerNode.getIndexOfChild(_childNode);
       {
               for(int i = 0; i < getNumFunctionDecl(); i++){
@@ -829,7 +829,7 @@ protected boolean pred_visited = false;
     }
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:22
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:22
    * @apilevel internal
    * @return {@code true} if this node has an equation for the inherited attribute functionLookup
    */
@@ -837,12 +837,12 @@ protected boolean pred_visited = false;
     return true;
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:85
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:85
    * @apilevel internal
    */
   public IdDecl Define_lookup(ASTNode _callerNode, ASTNode _childNode, String name) {
     if (_callerNode == getFunctionDeclListNoTransform()) {
-      // @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:44
+      // @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:44
       int index = _callerNode.getIndexOfChild(_childNode);
       {
               for(FunctionDecl fd : getFunctionDecls()) {
@@ -865,7 +865,7 @@ protected boolean pred_visited = false;
     }
   }
   /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:85
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:85
    * @apilevel internal
    * @return {@code true} if this node has an equation for the inherited attribute lookup
    */
@@ -877,10 +877,10 @@ protected boolean Program_errors_visited = false;
   /**
    * @attribute coll
    * @aspect Errors
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Error.jrag:26
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Error.jrag:26
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.COLL)
-  @ASTNodeAnnotation.Source(aspect="Errors", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Error.jrag:26")
+  @ASTNodeAnnotation.Source(aspect="Errors", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/Error.jrag:26")
   public Set<ErrorMessage> errors() {
     ASTState state = state();
     if (Program_errors_computed) {

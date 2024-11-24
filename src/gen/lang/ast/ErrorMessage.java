@@ -12,24 +12,24 @@ import java.lang.reflect.InvocationTargetException;
 /**
  * @ast class
  * @aspect Errors
- * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Error.jrag:5
+ * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Error.jrag:5
  */
 public class ErrorMessage extends java.lang.Object implements Comparable<ErrorMessage> {
   /**
    * @aspect Errors
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Error.jrag:6
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Error.jrag:6
    */
   
         protected final String message;
   /**
    * @aspect Errors
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Error.jrag:7
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Error.jrag:7
    */
   
         protected final int lineNumber;
   /**
    * @aspect Errors
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Error.jrag:8
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Error.jrag:8
    */
   
         public ErrorMessage(String message, int lineNumber) {
@@ -38,7 +38,7 @@ public class ErrorMessage extends java.lang.Object implements Comparable<ErrorMe
         }
   /**
    * @aspect Errors
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Error.jrag:12
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Error.jrag:12
    */
   
         public int compareTo(ErrorMessage other) {
@@ -49,7 +49,7 @@ public class ErrorMessage extends java.lang.Object implements Comparable<ErrorMe
         }
   /**
    * @aspect Errors
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Error.jrag:18
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Error.jrag:18
    */
   
         public String toString() {

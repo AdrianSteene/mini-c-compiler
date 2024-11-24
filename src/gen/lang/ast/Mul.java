@@ -11,7 +11,7 @@ import java.util.Map;
 import java.lang.reflect.InvocationTargetException;
 /**
  * @ast node
- * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/lang.ast:35
+ * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/lang.ast:35
  * @astdecl Mul : MathExpr ::= Left:Expr Right:Expr;
  * @production Mul : {@link MathExpr};
 
@@ -19,14 +19,14 @@ import java.lang.reflect.InvocationTargetException;
 public class Mul extends MathExpr implements Cloneable {
   /**
    * @aspect Visitor
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Visitor.jrag:108
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Visitor.jrag:108
    */
   public Object accept(Visitor visitor, Object data) {
         return visitor.visit(this, data);
     }
   /**
    * @aspect PrettyPrint
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/PrettyPrint.jrag:143
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/PrettyPrint.jrag:143
    */
   public void prettyPrint(PrintStream out, String ind) {
         getLeft().prettyPrint(out, ind);
@@ -35,7 +35,7 @@ public class Mul extends MathExpr implements Cloneable {
     }
   /**
    * @aspect CodeGen
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CodeGen.jrag:317
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/CodeGen.jrag:317
    */
   public void genEval(PrintStream out) {
     getLeft().genEval(out);
@@ -47,7 +47,7 @@ public class Mul extends MathExpr implements Cloneable {
     }
   /**
    * @aspect Interpreter
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Interpreter.jrag:110
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Interpreter.jrag:110
    */
   int value(ActivationRecord actrec) {
         return getLeft().value(actrec) * getRight().value(actrec);

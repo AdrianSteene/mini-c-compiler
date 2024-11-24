@@ -11,7 +11,7 @@ import java.util.Map;
 import java.lang.reflect.InvocationTargetException;
 /**
  * @ast node
- * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/lang.ast:31
+ * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/lang.ast:31
  * @astdecl GreaterOrEqual : BoolExpr ::= Left:Expr Right:Expr;
  * @production GreaterOrEqual : {@link BoolExpr};
 
@@ -19,14 +19,14 @@ import java.lang.reflect.InvocationTargetException;
 public class GreaterOrEqual extends BoolExpr implements Cloneable {
   /**
    * @aspect Visitor
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Visitor.jrag:99
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Visitor.jrag:99
    */
   public Object accept(Visitor visitor, Object data) {
         return visitor.visit(this, data);
     }
   /**
    * @aspect PrettyPrint
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/PrettyPrint.jrag:120
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/PrettyPrint.jrag:120
    */
   public void prettyPrint(PrintStream out, String ind) {
         getLeft().prettyPrint(out, ind);
@@ -35,14 +35,14 @@ public class GreaterOrEqual extends BoolExpr implements Cloneable {
     }
   /**
    * @aspect CodeGen
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CodeGen.jrag:236
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/CodeGen.jrag:236
    */
   public void getJump(PrintStream out, String name){
         out.println("        jl " + name);
     }
   /**
    * @aspect Interpreter
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Interpreter.jrag:132
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Interpreter.jrag:132
    */
   int value(ActivationRecord actrec) {
         return getLeft().value(actrec) >= getRight().value(actrec) ? 1 : 0;

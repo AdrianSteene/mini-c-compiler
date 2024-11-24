@@ -11,7 +11,7 @@ import java.util.Map;
 import java.lang.reflect.InvocationTargetException;
 /**
  * @ast node
- * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/lang.ast:27
+ * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/lang.ast:27
  * @astdecl NotEqual : BoolExpr ::= Left:Expr Right:Expr;
  * @production NotEqual : {@link BoolExpr};
 
@@ -19,14 +19,14 @@ import java.lang.reflect.InvocationTargetException;
 public class NotEqual extends BoolExpr implements Cloneable {
   /**
    * @aspect Visitor
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Visitor.jrag:87
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Visitor.jrag:87
    */
   public Object accept(Visitor visitor, Object data) {
         return visitor.visit(this, data);
     }
   /**
    * @aspect PrettyPrint
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/PrettyPrint.jrag:100
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/PrettyPrint.jrag:100
    */
   public void prettyPrint(PrintStream out, String ind) {
         getLeft().prettyPrint(out, ind);
@@ -35,14 +35,14 @@ public class NotEqual extends BoolExpr implements Cloneable {
     }
   /**
    * @aspect CodeGen
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CodeGen.jrag:224
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/CodeGen.jrag:224
    */
   public void getJump(PrintStream out, String name){
         out.println("        je " + name);
     }
   /**
    * @aspect Interpreter
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Interpreter.jrag:120
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Interpreter.jrag:120
    */
   int value(ActivationRecord actrec) {
         return getLeft().value(actrec) != getRight().value(actrec) ? 1 : 0;

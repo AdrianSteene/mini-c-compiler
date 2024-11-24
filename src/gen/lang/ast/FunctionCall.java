@@ -11,7 +11,7 @@ import java.util.Map;
 import java.lang.reflect.InvocationTargetException;
 /**
  * @ast node
- * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/lang.ast:20
+ * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/lang.ast:20
  * @astdecl FunctionCall : Expr ::= IdUse Expr*;
  * @production FunctionCall : {@link Expr} ::= <span class="component">{@link IdUse}</span> <span class="component">{@link Expr}*</span>;
 
@@ -19,14 +19,14 @@ import java.lang.reflect.InvocationTargetException;
 public class FunctionCall extends Expr implements Cloneable {
   /**
    * @aspect Visitor
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Visitor.jrag:78
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Visitor.jrag:78
    */
   public Object accept(Visitor visitor, Object data) {
         return visitor.visit(this, data);
     }
   /**
    * @aspect PrettyPrint
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/PrettyPrint.jrag:88
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/PrettyPrint.jrag:88
    */
   public void prettyPrint(PrintStream out, String ind) {
         getIdUse().prettyPrint(out, ind);
@@ -37,12 +37,12 @@ public class FunctionCall extends Expr implements Cloneable {
     }
   /**
    * @aspect CodeGen
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CodeGen.jrag:245
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/CodeGen.jrag:245
    */
   public void genConditionalJump(PrintStream out, String name){}
   /**
    * @aspect CodeGen
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CodeGen.jrag:350
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/CodeGen.jrag:350
    */
   public void genEval(PrintStream out) {
         if(getIdUse().getID().equals("print")) {
@@ -75,7 +75,7 @@ public class FunctionCall extends Expr implements Cloneable {
     }
   /**
    * @aspect Interpreter
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Interpreter.jrag:151
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Interpreter.jrag:151
    */
   int value(ActivationRecord actrec) {
         if(getIdUse().getID().equals("print")){
@@ -392,10 +392,10 @@ protected boolean addFunctionCall_visited = false;
   /**
    * @attribute syn
    * @aspect functionCalls
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/functionCall.jrag:12
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/functionCall.jrag:12
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN)
-  @ASTNodeAnnotation.Source(aspect="functionCalls", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/functionCall.jrag:12")
+  @ASTNodeAnnotation.Source(aspect="functionCalls", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/functionCall.jrag:12")
   public FunctionDecl addFunctionCall() {
     ASTState state = state();
     if (addFunctionCall_computed) {
@@ -430,10 +430,10 @@ protected boolean actualType_visited = false;
   /**
    * @attribute syn
    * @aspect TypeAnalysis
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:9
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:9
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN)
-  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:5")
+  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:5")
   public Type actualType() {
     ASTState state = state();
     if (actualType_computed) {
@@ -466,10 +466,10 @@ protected boolean validDecl_visited = false;
   /**
    * @attribute syn
    * @aspect TypeAnalysis
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:52
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:52
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN)
-  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:51")
+  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:51")
   public boolean validDecl() {
     ASTState state = state();
     if (validDecl_computed) {
@@ -502,10 +502,10 @@ protected boolean validCall_visited = false;
   /**
    * @attribute syn
    * @aspect NameAnalysis
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:2
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:2
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN)
-  @ASTNodeAnnotation.Source(aspect="NameAnalysis", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:2")
+  @ASTNodeAnnotation.Source(aspect="NameAnalysis", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:2")
   public boolean validCall() {
     ASTState state = state();
     if (validCall_computed) {
@@ -525,10 +525,10 @@ protected boolean validCall_visited = false;
   /**
    * @attribute inh
    * @aspect functionCalls
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/functionCall.jrag:9
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/functionCall.jrag:9
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.INH)
-  @ASTNodeAnnotation.Source(aspect="functionCalls", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/functionCall.jrag:9")
+  @ASTNodeAnnotation.Source(aspect="functionCalls", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/functionCall.jrag:9")
   public FunctionDecl enclosingFunction() {
     ASTState state = state();
     if (enclosingFunction_computed) {
@@ -563,10 +563,10 @@ protected boolean enclosingFunction_visited = false;
   /**
    * @attribute inh
    * @aspect NameAnalysis
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:22
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:22
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.INH)
-  @ASTNodeAnnotation.Source(aspect="NameAnalysis", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:22")
+  @ASTNodeAnnotation.Source(aspect="NameAnalysis", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:22")
   public boolean functionLookup(String name, List list) {
     java.util.List _parameters = new java.util.ArrayList(2);
     _parameters.add(name);
@@ -600,7 +600,7 @@ protected java.util.Set functionLookup_String_List_visited;
 
   /** @apilevel internal */
   protected void collect_contributors_FunctionDecl_functionCalls(Program _root, java.util.Map<ASTNode, java.util.Set<ASTNode>> _map) {
-    // @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/functionCall.jrag:6
+    // @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/functionCall.jrag:6
     {
       FunctionDecl target = (FunctionDecl) (enclosingFunction());
       java.util.Set<ASTNode> contributors = _map.get(target);
@@ -614,7 +614,7 @@ protected java.util.Set functionLookup_String_List_visited;
   }
   /** @apilevel internal */
   protected void collect_contributors_Program_errors(Program _root, java.util.Map<ASTNode, java.util.Set<ASTNode>> _map) {
-    // @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Error.jrag:41
+    // @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Error.jrag:41
     if (validCall()) {
       {
         Program target = (Program) (program());

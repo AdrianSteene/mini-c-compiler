@@ -11,7 +11,7 @@ import java.util.Map;
 import java.lang.reflect.InvocationTargetException;
 /**
  * @ast node
- * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/lang.ast:40
+ * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/lang.ast:40
  * @astdecl UnknownDecl : IdDecl ::= <ID:String>;
  * @production UnknownDecl : {@link IdDecl};
 
@@ -191,10 +191,10 @@ protected boolean isUnknown_visited = false;
   /**
    * @attribute syn
    * @aspect UnknownDecl
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/UnknownDecl.jrag:8
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/UnknownDecl.jrag:8
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN)
-  @ASTNodeAnnotation.Source(aspect="UnknownDecl", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/UnknownDecl.jrag:7")
+  @ASTNodeAnnotation.Source(aspect="UnknownDecl", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/UnknownDecl.jrag:7")
   public boolean isUnknown() {
     ASTState state = state();
     if (isUnknown_computed) {

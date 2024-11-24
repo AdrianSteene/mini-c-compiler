@@ -11,7 +11,7 @@ import java.util.Map;
 import java.lang.reflect.InvocationTargetException;
 /**
  * @ast node
- * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/lang.ast:22
+ * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/lang.ast:22
  * @astdecl BinExpr : Expr ::= Left:Expr Right:Expr;
  * @production BinExpr : {@link Expr} ::= <span class="component">Left:{@link Expr}</span> <span class="component">Right:{@link Expr}</span>;
 
@@ -19,7 +19,7 @@ import java.lang.reflect.InvocationTargetException;
 public abstract class BinExpr extends Expr implements Cloneable {
   /**
    * @aspect CodeGen
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CodeGen.jrag:215
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/CodeGen.jrag:215
    */
   abstract void getJump(PrintStream out, String name);
   /**

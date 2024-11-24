@@ -11,7 +11,7 @@ import java.util.Map;
 import java.lang.reflect.InvocationTargetException;
 /**
  * @ast node
- * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/lang.ast:42
+ * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/lang.ast:42
  * @astdecl Type : ASTNode;
  * @production Type : {@link ASTNode};
 

@@ -11,7 +11,7 @@ import java.util.Map;
 import java.lang.reflect.InvocationTargetException;
 /**
  * @ast node
- * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/lang.ast:13
+ * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/lang.ast:13
  * @astdecl IfElseStmt : Stmt ::= IfStmt Block;
  * @production IfElseStmt : {@link Stmt} ::= <span class="component">{@link IfStmt}</span> <span class="component">{@link Block}</span>;
 
@@ -19,14 +19,14 @@ import java.lang.reflect.InvocationTargetException;
 public class IfElseStmt extends Stmt implements Cloneable {
   /**
    * @aspect Visitor
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Visitor.jrag:63
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Visitor.jrag:63
    */
   public Object accept(Visitor visitor, Object data) {
         return visitor.visit(this, data);
     }
   /**
    * @aspect PrettyPrint
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/PrettyPrint.jrag:70
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/PrettyPrint.jrag:70
    */
   public void prettyPrint(PrintStream out, String ind) {
         getIfStmt().prettyPrint(out, ind);
@@ -38,7 +38,7 @@ public class IfElseStmt extends Stmt implements Cloneable {
     }
   /**
    * @aspect CodeGen
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CodeGen.jrag:247
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/CodeGen.jrag:247
    */
   public void genCode(PrintStream out){
         out.println("if" + stmtIndex() + ":");        
@@ -57,7 +57,7 @@ public class IfElseStmt extends Stmt implements Cloneable {
     }
   /**
    * @aspect Interpreter
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Interpreter.jrag:86
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Interpreter.jrag:86
    */
   public int execute(ActivationRecord actrec){
         int value = getIfStmt().execute(actrec);

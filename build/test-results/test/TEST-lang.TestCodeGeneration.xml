@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="lang.TestCodeGeneration" tests="3" skipped="0" failures="3" errors="0" timestamp="2024-10-22T12:31:57" hostname="Adrians-MacBook-Pro.local" time="0.083">
+<testsuite name="lang.TestCodeGeneration" tests="3" skipped="0" failures="3" errors="0" timestamp="2024-11-24T16:13:52" hostname="MacBookPro" time="0.195">
   <properties/>
-  <testcase name="runTest[example1.in]" classname="lang.TestCodeGeneration" time="0.038">
+  <testcase name="runTest[example1.in]" classname="lang.TestCodeGeneration" time="0.129">
     <failure message="org.junit.ComparisonFailure: Standard error was not empty when running command 'as' expected:&lt;[]&gt; but was:&lt;[clang: error: unsupported option '--gstabs'&#10;]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: Standard error was not empty when running command 'as' expected:&lt;[]&gt; but was:&lt;[clang: error: unsupported option '--gstabs'
 ]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:117)
@@ -56,7 +56,7 @@
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <testcase name="runTest[example3.in]" classname="lang.TestCodeGeneration" time="0.023">
+  <testcase name="runTest[example3.in]" classname="lang.TestCodeGeneration" time="0.033">
     <failure message="org.junit.ComparisonFailure: Standard error was not empty when running command 'as' expected:&lt;[]&gt; but was:&lt;[clang: error: unsupported option '--gstabs'&#10;]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: Standard error was not empty when running command 'as' expected:&lt;[]&gt; but was:&lt;[clang: error: unsupported option '--gstabs'
 ]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:117)
@@ -111,7 +111,7 @@
 	at worker.org.gradle.process.internal.worker.GradleWorkerMain.main(GradleWorkerMain.java:74)
 </failure>
   </testcase>
-  <testcase name="runTest[example2.in]" classname="lang.TestCodeGeneration" time="0.022">
+  <testcase name="runTest[example2.in]" classname="lang.TestCodeGeneration" time="0.033">
     <failure message="org.junit.ComparisonFailure: Standard error was not empty when running command 'as' expected:&lt;[]&gt; but was:&lt;[clang: error: unsupported option '--gstabs'&#10;]&gt;" type="org.junit.ComparisonFailure">org.junit.ComparisonFailure: Standard error was not empty when running command 'as' expected:&lt;[]&gt; but was:&lt;[clang: error: unsupported option '--gstabs'
 ]&gt;
 	at org.junit.Assert.assertEquals(Assert.java:117)

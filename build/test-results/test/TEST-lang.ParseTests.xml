@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="lang.ParseTests" tests="10" skipped="0" failures="0" errors="0" timestamp="2024-10-22T12:31:57" hostname="Adrians-MacBook-Pro.local" time="0.034">
+<testsuite name="lang.ParseTests" tests="10" skipped="0" failures="0" errors="0" timestamp="2024-11-24T16:13:52" hostname="MacBookPro" time="0.032">
   <properties/>
-  <testcase name="example" classname="lang.ParseTests" time="0.029"/>
-  <testcase name="error" classname="lang.ParseTests" time="0.0"/>
+  <testcase name="example" classname="lang.ParseTests" time="0.027"/>
+  <testcase name="error" classname="lang.ParseTests" time="0.001"/>
   <testcase name="example1" classname="lang.ParseTests" time="0.0"/>
-  <testcase name="example2" classname="lang.ParseTests" time="0.001"/>
+  <testcase name="example2" classname="lang.ParseTests" time="0.0"/>
   <testcase name="example3" classname="lang.ParseTests" time="0.0"/>
-  <testcase name="example4" classname="lang.ParseTests" time="0.0"/>
-  <testcase name="example5" classname="lang.ParseTests" time="0.001"/>
-  <testcase name="example6" classname="lang.ParseTests" time="0.0"/>
-  <testcase name="example7" classname="lang.ParseTests" time="0.001"/>
-  <testcase name="example8" classname="lang.ParseTests" time="0.0"/>
+  <testcase name="example4" classname="lang.ParseTests" time="0.001"/>
+  <testcase name="example5" classname="lang.ParseTests" time="0.0"/>
+  <testcase name="example6" classname="lang.ParseTests" time="0.001"/>
+  <testcase name="example7" classname="lang.ParseTests" time="0.0"/>
+  <testcase name="example8" classname="lang.ParseTests" time="0.001"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
 </testsuite>

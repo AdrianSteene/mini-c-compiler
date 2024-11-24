@@ -11,7 +11,7 @@ import java.util.Map;
 import java.lang.reflect.InvocationTargetException;
 /**
  * @ast node
- * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/lang.ast:8
+ * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/lang.ast:8
  * @astdecl Stmt : ASTNode;
  * @production Stmt : {@link ASTNode};
 
@@ -19,12 +19,12 @@ import java.lang.reflect.InvocationTargetException;
 public abstract class Stmt extends ASTNode<ASTNode> implements Cloneable {
   /**
    * @aspect CodeGen
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CodeGen.jrag:164
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/CodeGen.jrag:164
    */
   abstract public void genCode(PrintStream out);
   /**
    * @aspect Interpreter
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Interpreter.jrag:64
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Interpreter.jrag:64
    */
   public int execute(ActivationRecord actrec){
         return 0;
@@ -59,17 +59,16 @@ public abstract class Stmt extends ASTNode<ASTNode> implements Cloneable {
     validDecl_reset();
     localLookup_reset();
     expectedType_reset();
-    level_reset();
   }
   /** @apilevel internal 
-   * @declaredat ASTNode:26
+   * @declaredat ASTNode:25
    */
   public void flushCollectionCache() {
     super.flushCollectionCache();
 
   }
   /** @apilevel internal 
-   * @declaredat ASTNode:31
+   * @declaredat ASTNode:30
    */
   public Stmt clone() throws CloneNotSupportedException {
     Stmt node = (Stmt) super.clone();
@@ -81,7 +80,7 @@ public abstract class Stmt extends ASTNode<ASTNode> implements Cloneable {
    * @return dangling copy of the subtree at this node
    * @apilevel low-level
    * @deprecated Please use treeCopy or treeCopyNoTransform instead
-   * @declaredat ASTNode:42
+   * @declaredat ASTNode:41
    */
   @Deprecated
   public abstract Stmt fullCopy();
@@ -90,7 +89,7 @@ public abstract class Stmt extends ASTNode<ASTNode> implements Cloneable {
    * The copy is dangling, i.e. has no parent.
    * @return dangling copy of the subtree at this node
    * @apilevel low-level
-   * @declaredat ASTNode:50
+   * @declaredat ASTNode:49
    */
   public abstract Stmt treeCopyNoTransform();
   /**
@@ -99,7 +98,7 @@ public abstract class Stmt extends ASTNode<ASTNode> implements Cloneable {
    * The copy is dangling, i.e. has no parent.
    * @return dangling copy of the subtree at this node
    * @apilevel low-level
-   * @declaredat ASTNode:58
+   * @declaredat ASTNode:57
    */
   public abstract Stmt treeCopy();
 /** @apilevel internal */
@@ -118,10 +117,10 @@ protected boolean stmtIndex_visited = false;
   /**
    * @attribute syn
    * @aspect CodeGen
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CodeGen.jrag:409
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/CodeGen.jrag:409
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN)
-  @ASTNodeAnnotation.Source(aspect="CodeGen", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/CodeGen.jrag:400")
+  @ASTNodeAnnotation.Source(aspect="CodeGen", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/CodeGen.jrag:400")
   public int stmtIndex() {
     ASTState state = state();
     if (stmtIndex_computed) {
@@ -154,10 +153,10 @@ protected boolean validDecl_visited = false;
   /**
    * @attribute syn
    * @aspect TypeAnalysis
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:48
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:48
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN)
-  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:48")
+  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:48")
   public boolean validDecl() {
     ASTState state = state();
     if (validDecl_computed) {
@@ -192,10 +191,10 @@ protected boolean localLookup_visited = false;
   /**
    * @attribute syn
    * @aspect NameAnalysis
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:106
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:106
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.SYN)
-  @ASTNodeAnnotation.Source(aspect="NameAnalysis", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/NameAnalysis.jrag:106")
+  @ASTNodeAnnotation.Source(aspect="NameAnalysis", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/NameAnalysis.jrag:106")
   public IdDecl localLookup() {
     ASTState state = state();
     if (localLookup_computed) {
@@ -215,10 +214,10 @@ protected boolean localLookup_visited = false;
   /**
    * @attribute inh
    * @aspect TypeAnalysis
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:23
+   * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:23
    */
   @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.INH)
-  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:23")
+  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/mini-c-compiler/src/jastadd/TypeAnalysis.jrag:23")
   public Type expectedType() {
     ASTState state = state();
     if (expectedType_computed) {
@@ -250,61 +249,9 @@ protected boolean expectedType_visited = false;
   /** @apilevel internal */
   protected Type expectedType_value;
 
-  /**
-   * @attribute inh
-   * @aspect TypeAnalysis
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:102
-   */
-  @ASTNodeAnnotation.Attribute(kind=ASTNodeAnnotation.Kind.INH)
-  @ASTNodeAnnotation.Source(aspect="TypeAnalysis", declaredAt="/Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:102")
-  public int level() {
-    ASTState state = state();
-    if (level_computed) {
-      return level_value;
-    }
-    if (level_visited) {
-      throw new RuntimeException("Circular definition of attribute Stmt.level().");
-    }
-    level_visited = true;
-    state().enterLazyAttribute();
-    level_value = getParent().Define_level(this, null);
-    level_computed = true;
-    state().leaveLazyAttribute();
-    level_visited = false;
-    return level_value;
-  }
-/** @apilevel internal */
-protected boolean level_visited = false;
-  /** @apilevel internal */
-  private void level_reset() {
-    level_computed = false;
-    level_visited = false;
-  }
-  /** @apilevel internal */
-  protected boolean level_computed = false;
-
-  /** @apilevel internal */
-  protected int level_value;
-
-  /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:102
-   * @apilevel internal
-   */
-  public int Define_level(ASTNode _callerNode, ASTNode _childNode) {
-    int childIndex = this.getIndexOfChild(_callerNode);
-    return level() + 1;
-  }
-  /**
-   * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/TypeAnalysis.jrag:102
-   * @apilevel internal
-   * @return {@code true} if this node has an equation for the inherited attribute level
-   */
-  protected boolean canDefine_level(ASTNode _callerNode, ASTNode _childNode) {
-    return true;
-  }
   /** @apilevel internal */
   protected void collect_contributors_Program_errors(Program _root, java.util.Map<ASTNode, java.util.Set<ASTNode>> _map) {
-    // @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Error.jrag:49
+    // @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Error.jrag:49
     if (validDecl()) {
       {
         Program target = (Program) (program());

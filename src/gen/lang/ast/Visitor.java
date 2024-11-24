@@ -15,7 +15,7 @@ import java.lang.reflect.InvocationTargetException;
  * have a visit method.
  * @ast interface
  * @aspect Visitor
- * @declaredat /Users/adriansteene/dev/EDAN65/p017-adrian-christoffer/A6/A6 - SimpliC/src/jastadd/Visitor.jrag:6
+ * @declaredat /Users/adriansteene/dev/mini-c-compiler/src/jastadd/Visitor.jrag:6
  */
 public interface Visitor {
 
